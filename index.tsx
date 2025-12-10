@@ -1,16 +1,18 @@
-
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+function App() {
+  return React.createElement('div', {
+    className: 'min-h-screen bg-blue-500 text-white p-8'
+  }, 
+    React.createElement('h1', {
+      className: 'text-4xl font-bold'
+    }, 'داشبورد مدیریت پروژه'),
+    React.createElement('p', {
+      className: 'mt-4 text-xl'
+    }, 'پروژه با موفقیت لود شد!')
+  );
 }
 
-const root = createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const root = createRoot(document.getElementById('root'));
+root.render(React.createElement(App));
