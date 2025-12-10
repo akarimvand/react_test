@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Debug</title>
+</head>
+<body>
+    <div id="root">Loading...</div>
+    <script>
+        console.log('HTML loaded');
+        window.addEventListener('error', (e) => {
+            console.error('Error:', e.error);
+            document.body.innerHTML += '<p style="color:red">Error: ' + e.message + '</p>';
+        });
+    </script>
+    <script type="module">
+        console.log('Module script started');
+        try {
+            const react = await import('https://esm.sh/react@18');
+            console.log('React loaded:', react);
+            document.getElementById('root').innerHTML = 'React loaded successfully!';
+        } catch (e) {
+            console.error('Import failed:', e);
+            document.getElementById('root').innerHTML = 'Import failed: ' + e.message;
+        }
+    </script>
+</body>
+</html>
