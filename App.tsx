@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import Dashboard from './components/Dashboard';
-import { Page } from './types';
+import Sidebar from './components/Sidebar.tsx';
+import Header from './components/Header.tsx';
+import Dashboard from './components/Dashboard.tsx';
+import { Page } from './types.ts';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard');
